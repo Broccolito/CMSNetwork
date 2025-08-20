@@ -1,0 +1,62 @@
+# Large data files (>100MB) - excluded from version control
+
+# V2G mapping data
+v2g.csv.gz
+
+# CMS component files
+andean_cms_components.csv
+tibetan_cms_components.csv
+
+# TKOI analysis results
+run_v2g0.1/andean_tkoi_result.rda
+run_v2g0.1/tibetan_tkoi_result.rda
+run_v2g0.2/tibetan_tkoi_result.rda
+run_v2g0.2/andean_tkoi_result.rda
+
+# General patterns for large files
+*.rda
+*cms_components.csv
+
+# R specific ignores
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Log files
+*.log
+
+# Parquet files (potentially large)
+parquet_files/
+
+# Excel temporary files
+~$*.xlsx
+~$*.xls
+
+# Compressed archives
+*.zip
+*.tar.gz
+*.rar
+
+# Output plots and large images
+*.png
+*.jpg
+*.jpeg
+*.pdf
