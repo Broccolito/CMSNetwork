@@ -10,12 +10,6 @@ library(readxl)
 library(writexl)
 
 mart = useEnsembl(biomart = "genes", dataset = "hsapiens_gene_ensembl")
-genes_map = getBM(
-  attributes = c("ensembl_gene_id", "hgnc_symbol"),
-  filters = "ensembl_gene_id",
-  values = unique(overlap$gene_name),
-  mart = mart
-)
 
 v2g = fread("v2g.csv.gz")
 
@@ -95,6 +89,13 @@ overlap = inner_join(andean_annotated, tibetan_annotated,
                      suffix = c("_andean", "_tibetan")) |>
   mutate(transformed_beta_tibetan = RankNorm(cms_score_tibetan)) |>
   mutate(transformed_beta_andean = RankNorm(cms_score_andean))
+
+genes_map = getBM(
+  attributes = c("ensembl_gene_id", "hgnc_symbol"),
+  filters = "ensembl_gene_id",
+  values = unique(overlap$gene_name),
+  mart = mart
+)
 
 overlap = overlap |>
   left_join(genes_map, by = c("gene_name" = "ensembl_gene_id")) |>
