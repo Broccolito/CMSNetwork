@@ -185,12 +185,12 @@ plot_scatter = function(modality){
   return(plt)
 }
 
-plt_network = plot_scatter("Gene")
+plt_network = plot_scatter("Gene") + 
+  ggtitle(label = "Network Propagation of Selected Genes")
 
-panel = (plt_raw | plt_network) +
-  plot_annotation(tag_levels = 'A')
+panel = (plt_raw | plt_network)
 
-ggsave("gene_level_convergence.png", plot = panel, 
-       width = 8, height = 4, dpi = 1200)
+ggsave("gene_level_convergence.png", plot = panel,
+       width = 10, height = 5, dpi = 1200)
 
 
